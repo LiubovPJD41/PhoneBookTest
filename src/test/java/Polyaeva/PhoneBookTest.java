@@ -8,6 +8,7 @@ import org.junit.platform.commons.annotation.Testable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 @Testable
 public class PhoneBookTest {
     private PhoneBook phoneBook;
@@ -24,17 +25,26 @@ public class PhoneBookTest {
     }
 
     @AfterEach
-    public void tearDown(){
+    public void tearDown() {
         phoneBook = null;
     }
+
     @Test
-    public void findContactInGroupTest(){
+    public void findContactInGroupTest() {
         String groupName = "Friends";
         String name = "Liubov";
 
         Contact contactExpected = null;
-        Contact contact = phoneBook.findContactInGroup(name,groupName);
+        Contact contact = phoneBook.findContactInGroup(name, groupName);
 
-        assertEquals(contactExpected, contact);
+        assertNull(contact);
+    }
+
+    @Test
+    public void addContactInGroupTest(){
+        Contact contact = new Contact("Liubov", "89183380985" );
+        String groupName = "Friends";
+        assertTrue(phoneBook.addContactInGroup(contact, groupName));
+
     }
 }

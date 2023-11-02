@@ -15,6 +15,8 @@ public class PhoneBook {
         }
     }
     public  Contact findContactInGroup(String name, String groupName) {
+        if (!phoneBook.containsKey(groupName))
+            return  null;
         for (Contact contact :
                 phoneBook.get(groupName)) {
             if (contact.name.equals(name))
@@ -26,6 +28,9 @@ public class PhoneBook {
         if (findContactInGroup(contact.name, groupName) != null) {
             return false;
         } else {
+            if (!phoneBook.containsKey(groupName)){
+                addGroup(groupName);
+            }
             phoneBook.get(groupName).add(contact);
             return true;
         }
