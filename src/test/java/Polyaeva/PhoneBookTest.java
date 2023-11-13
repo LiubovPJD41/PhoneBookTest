@@ -8,7 +8,6 @@ import org.junit.platform.commons.annotation.Testable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
 @Testable
 public class PhoneBookTest {
     private PhoneBook phoneBook;
@@ -45,6 +44,6 @@ public class PhoneBookTest {
         Contact contact = new Contact("Liubov", "89183380985" );
         String groupName = "Friends";
         assertTrue(phoneBook.addContactInGroup(contact, groupName));
-
     }
+
 }
